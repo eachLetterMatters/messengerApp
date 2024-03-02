@@ -25,7 +25,7 @@ public class ChatAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         this.chatMessages = chatMessages;
         this.receiverProfileImage = receiverProfileImage;
         this.senderId = senderId;
-//        setHasStableIds(true);  // maybe it will help
+        setHasStableIds(true);  // maybe it will help
     }
 
     @NonNull
@@ -74,11 +74,11 @@ public class ChatAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             return VIEW_TYPE_RECEIVED;
         }
     }
-//    @Override
-//    public long getItemId(int position) {
-////        return chatMessages.get(position).getId();
+    @Override
+    public long getItemId(int position) {
+        return chatMessages.get(position).id.hashCode();
 //        return position;
-//    }
+    }
 
     static class SentMessageViewHolder extends RecyclerView.ViewHolder {
         private final ItemContainerSentMessageBinding binding;
